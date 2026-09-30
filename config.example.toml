@@ -1,0 +1,47 @@
+# ~/.config/strymek/config.toml
+# Created by `strymek init`; the password hash is written by `strymek passwd`.
+
+# Listen only on the WireGuard address so the server is reachable through the tunnel only.
+bind = "10.66.0.1:10000"
+
+# Set with `strymek passwd`. Never edit by hand.
+password_hash = ""
+
+# Hours of inactivity before you must sign in again.
+session_idle_hours = 12
+
+# Names and addresses the TLS certificate covers (use what you type in the browser).
+tls_names = ["10.66.0.1", "workstation"]
+
+# Your own certificate instead of the generated one (PEM). Leave unset to use the built-in CA.
+# tls_cert = "/etc/ssl/strymek/fullchain.pem"
+# tls_key  = "/etc/ssl/strymek/privkey.pem"
+
+# Resizable headless X server used for each app (package: tigervnc-standalone-server).
+# Its VNC listeners are disabled; it is used only as an X server.
+x_server = "Xtigervnc"
+
+# Give each app its own D-Bus session so single-instance apps (GNOME Terminal,
+# Files, …) open a new window here instead of on the physical desktop.
+isolate_dbus = true
+
+# UI scale for apps: 0 = follow the browser (2 on a Retina Mac), or force 1 / 2.
+scale = 0
+
+# Frame rate cap and lossy quality for large, fast-changing areas.
+max_fps = 30
+lossy_quality = 80.0
+
+# After Strymek unlocks your desktop for live windows, lock it again once no
+# live desktop window has been watched for this many seconds (0 = never).
+relock_after_secs = 60
+
+# Hide installed apps from the dashboard by their .desktop id (see `strymek apps`).
+hidden_apps = ["display-im6.q16", "texdoctk"]
+
+# Extra programs to list on the dashboard.
+[[app]]
+id = "htop"
+name = "htop (terminal)"
+exec = "xterm -fa Monospace -fs 12 -e htop"
+icon = "utilities-terminal"

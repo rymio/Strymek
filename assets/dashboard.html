@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strymek</title>
+<link rel="icon" href="/assets/icon.svg">
+<link rel="stylesheet" href="/assets/app.css">
+<script type="module" src="/assets/dashboard.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="/assets/icon.svg" alt="">Strymek</div>
+  <div class="host" id="host"></div>
+  <div class="spacer"></div>
+  <button id="full-desk" class="primary" type="button" hidden title="See and use the whole workstation screen, including the lock screen">Full desktop</button>
+  <a class="btn" href="/ca.pem" title="Download the certificate authority to trust on this Mac">Certificate</a>
+  <form method="post" action="/logout"><button type="submit">Sign out</button></form>
+</header>
+<main class="dash">
+  <section class="block">
+    <h2>Running <span class="count" id="run-count">0</span></h2>
+    <div class="streams" id="streams"></div>
+    <div class="empty" id="streams-empty">Nothing running yet. Pick a program below to start it.</div>
+  </section>
+  <section class="block" id="desk-block">
+    <h2>On your desktop <span class="count" id="desk-count">0</span></h2>
+    <div class="desk-status" id="desk-status">Checking your desktop session…</div>
+    <div class="desk-apps" id="desk-apps"></div>
+    <div class="streams" id="desk-windows"></div>
+    <p class="hint" id="desk-hint"></p>
+  </section>
+  <section class="block">
+    <h2>Programs <span class="count" id="app-count">0</span></h2>
+    <div class="apps-head"><input type="search" id="filter" placeholder="Search programs" autocomplete="off"></div>
+    <div class="apps" id="apps"></div>
+    <p class="hint">Each program opens in its own window with its own address. In Safari, choose File &rarr; Add to Dock on that window to keep it as an app on your Mac.</p>
+  </section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>

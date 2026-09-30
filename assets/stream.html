@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{NAME}}</title>
+<link rel="manifest" href="/{{SLUG}}/manifest.webmanifest">
+<link rel="icon" href="/api/icon/{{APPID}}">
+<link rel="apple-touch-icon" href="/api/icon/{{APPID}}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#15171a">
+<link rel="stylesheet" href="/assets/app.css">
+<script type="module" src="/assets/stream.js"></script>
+</head>
+<body class="stream" data-slug="{{SLUG}}" data-name="{{NAME}}">
+<canvas id="screen" tabindex="0"></canvas>
+<div id="status"><span class="dot" id="status-dot"></span><span id="status-text">Connecting</span></div>
+<button id="menu-btn" title="Strymek menu" aria-label="Strymek menu"></button>
+<div id="menu" role="menu">
+  <a href="/" target="_blank" rel="noopener">Open dashboard</a>
+  <button id="m-cmd" type="button">Cmd key acts as Ctrl: on</button>
+  <button id="m-paste" type="button">Type clipboard text into app</button>
+  <button id="m-refresh" type="button">Redraw screen</button>
+  <button id="m-unlock" type="button" hidden>Unlock desktop</button>
+  <button id="m-fit" type="button" hidden>Actual size (scroll)</button>
+  <button id="m-fulldesk" type="button" hidden>Open full desktop</button>
+  <button id="m-full" type="button">Full screen</button>
+  <div class="info" id="m-info">{{SLUG}}</div>
+</div>
+<div id="overlay"><div class="box"><h2 id="ov-title">Connecting</h2><p id="ov-text"></p><p><a class="btn" href="/">Dashboard</a></p></div></div>
+</body>
+</html>

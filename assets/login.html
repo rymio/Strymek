@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strymek sign in</title>
+<link rel="icon" href="/assets/icon.svg">
+<link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login">
+    <h1><img src="/assets/icon.svg" alt="">Strymek</h1>
+    <p>Sign in to reach your workstation's apps.</p>
+    <form method="post" action="/login">
+      <input type="hidden" name="next" value="{{NEXT}}">
+      <input type="password" name="password" placeholder="Password" autocomplete="current-password" autofocus required>
+      <p class="error">{{ERROR}}</p>
+      <button class="primary" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

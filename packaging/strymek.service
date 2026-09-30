@@ -1,0 +1,21 @@
+# systemd user service for Strymek.
+# Installed by install.sh to ~/.config/systemd/user/strymek.service
+[Unit]
+Description=Strymek - stream Linux apps to the browser
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/strymek serve
+Restart=on-failure
+RestartSec=3
+# /snap/bin so snap apps (Ubuntu's Firefox) can be launched.
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin:/snap/bin
+Environment=RUST_LOG=strymek=info
+# Stop all streamed apps cleanly on shutdown.
+KillMode=mixed
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target
